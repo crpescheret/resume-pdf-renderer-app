@@ -6,6 +6,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
   
- Page.all {|x| x.destroy}
+ Page.all.each {|x| x.destroy}
 
-  Page.create(body: "This is a pdf")
+   
+
+  5.times do 
+Page.create(
+  :body => "Capstone Description",
+  :first_name => Faker::Name.first_name, 
+  :last_name => Faker::Name.last_name,
+  :email => Faker::Internet.email,
+  :phone_number => Faker::PhoneNumber.phone_number, 
+  :short_bio => Faker::Lorem.paragraph,
+  :linkedin_url => Faker::Internet.url,
+  :github_url => Faker::Internet.url 
+  )
+end
