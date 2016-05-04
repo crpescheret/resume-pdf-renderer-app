@@ -22,7 +22,7 @@ class Pdf < Prawn::Document
     bounding_box([0, 550], :width => 250, :height => 220) do
     text "Profile: #{@user['short_bio']}" * 3,:size => 10, :color => "0000FF", :align => :left
     end
-    @user["experiences"][0].each { |k,v| text "#{k}: #{v}"}
+    @user["experiences"][0].each { |k,v| text "#{k}: #{v}" unless "#{k}"==("id".to_sym)}
     move_down 10
     @user["educations"].each {|x| x.each { |k,v| text "#{k}: #{v}" }}
     move_down 10
