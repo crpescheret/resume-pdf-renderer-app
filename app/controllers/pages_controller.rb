@@ -5,14 +5,13 @@ class PagesController < ApplicationController
   end
   
   def show
-    @page = Unirest.get("https://thawing-lake-55981.herokuapp.com/students/#{params[:id]}").body
+    @user = Unirest.get("https://thawing-lake-55981.herokuapp.com/students/#{params[:id]}").body
     respond_to do |format|
     format.html 
     format.pdf do 
-      pdf = Pdf.new(@page, view_context)
+      pdf = Pdf.new(@user, view_context)
       send_data pdf.render, 
-      filename:
-      "#{@page['id']}.pdf",
+      filename: "#{@user['id']}.pdf",
       type: "application/pdf", 
       disposition: "inline"
       end 
@@ -24,8 +23,8 @@ class PagesController < ApplicationController
   end
 
   def create 
-    @page = Page.create(body: params[:body])
-    redirect_to '/pages/{@page.id}'
+    @user = Page.create(body: params[:body])
+    redirect_to '/pages/{@user.id}'
   end
 
 end 
