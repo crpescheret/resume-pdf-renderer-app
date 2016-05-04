@@ -1,0 +1,50 @@
+<h1>Resume Generator</h1>
+
+<h3>Choose your attributes:</h3>
+
+
+<%= form_tag '/resume', {method: :post} do %>
+    <div class="form-group">
+      <%= check_box_tag :text %>
+      <%= label_tag :text, "Text" %>
+    </div>
+    <div class="form-group">
+      <%= check_box_tag :short_bio %>
+      <%= label_tag :short_bio, "Bio" %>
+    </div>
+    <div class="form-group">
+      <%= check_box_tag :linkedin_url %>
+      <%= label_tag :linkedin_url, "Linkedin URL" %>
+    </div>
+    <div class="form-group">
+      <%= check_box_tag :twitter_handle %>
+      <%= label_tag :twitter_handle, "Twitter" %>
+    </div>
+    <div class="form-group">
+      <%= check_box_tag :blog %>
+      <%= label_tag :blog, "Blog" %>
+    </div>
+    <div class="form-group">
+      <%= check_box_tag :github_url %>
+      <%= label_tag :github_url, "Github URL" %>
+    </div>
+    <div class="form-group">
+      <%= check_box_tag :photo %>
+      <%= label_tag :photo, "Photo" %>
+    </div>
+    <div class="form-group">
+      <%= check_box_tag :experiences %>
+      <%= label_tag :experiences, "Experiences" %>
+    </div>
+    <div class="form-group">
+      <%= check_box_tag :educations %>
+      <%= label_tag :educations, "Education" %>
+    </div>
+    <div class="form-group">
+      <%= check_box_tag :skills %>
+      <%= label_tag :skills, "Skills" %>
+    </div>
+    <div>
+      <%= submit_tag "Create" %>
+    </div>
+<% end %>

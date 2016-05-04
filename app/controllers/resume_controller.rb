@@ -1,4 +1,8 @@
 class ResumeController < ApplicationController
+  def index
+    @resume = Resume.all
+  end
+
   def show
     @resume = Resume.find(params[:id])
     respond_to do |format|
